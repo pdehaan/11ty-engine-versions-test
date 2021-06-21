@@ -1,0 +1,15 @@
+---
+pagination:
+  data: engines
+  size: 1
+  alias: engine
+permalink: "{{ engine.version | slug }}-{{ engine.tag | slug }}/"
+---
+
+<h1>{{ engine.version }} ({{ engine.tag }})</h1>
+
+<ul>
+{% for pkg in engine.engines %}
+  <li><a href="http://npm.im/{{ pkg.name | slug }}">{{ pkg.name }}</a>@{{ pkg.version }} ({{ pkg.semver}})</li>
+{%- endfor %}
+</ul>
